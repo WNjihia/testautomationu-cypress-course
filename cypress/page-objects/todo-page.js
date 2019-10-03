@@ -1,12 +1,12 @@
-export function navigate () {
+export function navigate() {
     cy.visit('http://todomvc-app-for-testing.surge.sh/')
   }
 
-export function addTodo (todoText) {
+export function addTodo(todoText) {
     cy.get('.new-todo').type(todoText + '{enter}')
   }
 
-export function toggleTodo (todoIndex) {
+export function toggleTodo(todoIndex) {
     cy.get(`.todo-list li:nth-child(${todoIndex + 1}) .toggle`).click()
   }
 
@@ -40,6 +40,6 @@ export function validateToggleState(todoIndex, shouldBeToggled) {
     label.should(`${shouldBeToggled ? '' : 'not.'}be.checked`)
   }
 
-export function clearCompleted () {
+export function clearCompleted() {
     cy.contains('Clear completed').click()
   }
